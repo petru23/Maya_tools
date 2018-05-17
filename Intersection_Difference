@@ -1,0 +1,12 @@
+global proc Intersection_Difference()
+{
+    string $sel[] = `ls -os`;
+    if(`size $sel` != 2)
+    {
+        print "Error: You need to select 2 elements";
+    }
+    string $poly[] = `duplicate -st $sel[0]`;
+    string $poly1[] = `duplicate -st $sel[1]`;
+    polyCBoolOp -op 2 -n poly $sel[1] $sel[0];    
+    polyCBoolOp -op 3 -n poly2 $poly1[0] $poly[0]; 
+}
